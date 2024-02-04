@@ -1,12 +1,12 @@
-<div id="todo-{{index}}" class="flex mb-4 items-center">
-  <p class="w-full text-grey-darkest">{{ todo}}</p>
+<div id="todo-{{index}}" class="mb-4 flex items-center">
+  <p class="text-grey-darkest w-full">{{ todo}}</p>
   <button
-    class="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-white text-green border-green hover:bg-green"
+    class="flex-no-shrink text-green border-green hover:bg-green ml-4 mr-2 rounded border-2 p-2 hover:text-white"
   >
     Done
   </button>
   <button
-    class="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-white hover:bg-red"
+    class="flex-no-shrink text-red border-red hover:bg-red ml-2 rounded border-2 p-2 hover:text-white"
     hx-delete="/{{ todo }}"
     hx-swap="outerHTML"
     hx-target="#todo-{{index}}"

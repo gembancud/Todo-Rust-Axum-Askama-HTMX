@@ -1,8 +1,8 @@
 <form hx-post="/" hx-target="#todo-list" hx-swap="outerHTML">
-  <div class="flex mt-4">
+  <div class="mt-4 flex">
     {% include "components/todo_field.html" %}
     <button
-      class="flex-no-shrink p-2 border-2 rounded text-teal border-teal hover:text-white hover:bg-teal"
+      class="flex-no-shrink text-teal border-teal hover:bg-teal rounded border-2 p-2 hover:text-white"
       type="submit"
     >
       Add
