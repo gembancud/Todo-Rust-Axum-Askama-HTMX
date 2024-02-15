@@ -10,6 +10,7 @@ use axum::{
 };
 
 use tokio::sync::Mutex;
+use tower_http::services::ServeDir;
 
 #[derive(Clone)]
 struct AppState {
@@ -26,7 +27,8 @@ pub fn create_router() -> Router {
     let router = Router::new()
         .route("/", get(todo).post(add_todo))
         .route("/:todo", delete(delete_todo))
-        .route("/clear", get(|| async { TodoField }));
+        .route("/clear", get(|| async { TodoField }))
+        .nest_service("/static", ServeDir::new("src/api/templates"));
 
     router
         .with_state(state)

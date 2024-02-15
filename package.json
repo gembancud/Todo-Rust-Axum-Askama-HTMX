@@ -1,6 +1,14 @@
 {
   "devDependencies": {
     "prettier": "^3.2.5",
+    "tailwindcss": "^3.4.1",
     "prettier-plugin-tailwindcss": "^0.5.11"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35"
+  },
+  "scripts": {
+    "tailwind:build": "npx tailwindcss build src/api/templates/styles.css -o src/api/templates/css/tailwind.css"
   }
 }
