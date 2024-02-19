@@ -7,7 +7,7 @@
   </button>
   <button
     class="flex-no-shrink text-red border-red hover:bg-red ml-2 rounded border-2 p-2 hover:text-white"
-    hx-delete="/{{ todo }}"
+    hx-delete="todo/{{ todo }}"
     hx-swap="outerHTML"
     hx-target="#todo-{{index}}"
   >
