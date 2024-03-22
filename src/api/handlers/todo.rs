@@ -35,7 +35,7 @@ struct HelloTemplate {
 
 async fn todo(State(state): State<AppState>) -> HelloTemplate {
     let todos = state.todos.lock().await.clone();
-    HelloTemplate { todos: todos }
+    HelloTemplate { todos }
 }
 
 #[derive(serde::Deserialize)]
@@ -63,11 +63,9 @@ async fn add_todo(State(state): State<AppState>, Form(form): Form<AddTodo>) -> T
     }
 }
 
-async fn delete_todo(State(state): State<AppState>, Path(todo): Path<String>) -> () {
+async fn delete_todo(State(state): State<AppState>, Path(todo): Path<String>) {
     let mut todos = state.todos.lock().await;
     if let Some(index) = todos.iter().position(|t| *t == todo) {
         todos.remove(index);
     }
-
-    ()
 }
